@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-color: #f9f0e0;
+    color: #222;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #a2ab73;
+    color: white;
+    padding: 25px 8%;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 70%;
+    border: 2px solid white;
+}
+
+.profile h1 {
+  font-size: 30px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #ddd;
+}
+
+
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 25px;
+    font-weight: bold;
+}
+
+
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #24145c;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+section h3 {
+    color: #3d2b78;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+section p {
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-left: 25px;
+}
+
+
+.skill {
+  
+    
+}
+
+.skill h3 {
+    margin: 0;
+}
+
+.skill p {
+    margin-top: 3px;
+}
+
+footer {
+    background-color: #24145c;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+
+@media (max-width: 600px) {
+    .profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile h1 {
+        font-size: 24px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 10px;
+    }
+
+    main {
+        padding: 0 15px;
+    }
+
+    section {
+        padding: 20px;
+    }
+}
