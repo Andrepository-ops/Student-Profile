@@ -293,3 +293,8 @@ html, body {
 body {
     position: static !important;
 }
+
+/* Utility: hide elements (used to toggle Edit Profile form) */
+.d-none {
+    display: none !important;
+}
