@@ -40,7 +40,6 @@ Requires a connected Android device or emulator with Cordova camera support.
 
 ## Screenshots
 
-> Replace these placeholders with your own screenshots before submitting.
 
 Profile View
 ![Profile view](screenshots/Profile-1.png)
