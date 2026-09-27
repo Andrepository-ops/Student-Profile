@@ -42,14 +42,14 @@ Requires a connected Android device or emulator with Cordova camera support.
 
 
 Profile View
-![Profile view](screenshots/Profile-1.png)
+![Profile view](screenshots/Profile-1.jiff)
 
 ### Edit Profile
-![Edit profile form](screenshots/Profile-2.png)
-![Edit profile form](screenshots/Profile-3.png)
+![Edit profile form](screenshots/Profile-2.jiff)
+![Edit profile form](screenshots/Profile-3.jiff)
 
 ### Profile with new photo
-![Edit profile form](screenshots/Profile-4.png)
+![Edit profile form](screenshots/Profile-4.jiff)
 
 
 
