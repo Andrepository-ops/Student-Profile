@@ -1,71 +1,85 @@
 # Multi-Page Student Profile Website
-    Earl Andre H. Valmorida | ITCC41 A
 
-## 1. Project Description
+**Earl Andre H. Valmorida - ITCC41 A**
 
-This is a multi-page Student Profile application for Earl Andre H. Valmorida, a 3rd-year BS Information Technology student. Built with HTML5, CSS3, and Bootstrap 5, and packaged as a native Android app using Apache Cordova, it presents a personal profile across five dedicated pages: Profile, About, Skills, Projects, and Contact.
+---
 
-## 2. Application Pages
+## Project Description
 
-- **Profile (`index.html`)** – The landing page. Provides a short welcome/introduction and an "Explore" section with quick links into the other four pages.
-- **About (`about.html`)** – Personal background, interests, educational background, and personal goals.
-- **Skills (`skills.html`)** – A breakdown of technical and soft skills (HTML, CSS, Team Leadership, Problem Solving, Teamwork), each with a short self-assessment.
-- **Projects (`projects.html`)** – A showcase of coursework projects, including this Cordova mobile profile app itself, with description, role, and tools used for each.
-- **Contact (`contact.html`)** – Contact details (email, GitHub) and a message form for reaching out.
+This is my multi-page Student Profile application. The site is built with HTML5, CSS3, and Bootstrap 5, packaged as a Cordova application. The Profile page now includes a fully functional Edit Profile feature that lets the user update their personal information directly through the app, with all changes saved using the browser's localStorage so they persist across sessions.
 
-## 3. Navigation
+## Application Pages
 
-Every page shares the same header containing a navigation bar (`<nav>` with a list of `<a href="...">` links to `index.html`, `about.html`, `skills.html`, `projects.html`, and `contact.html`). The application uses standard HTML links to navigate between pages — there is no single-page routing or JavaScript navigation logic. The link for the currently active page is visually highlighted with an `active` class and marked with `aria-current="page"`. Each interior page also includes a "Back to Profile" link for quick return to the home page.
+- **Profile** (index.html) 
+- **About** (about.html) 
+- **Skills** (skills.html)
+- **Projects** (projects.html) 
+- **Contact** (contact.html) 
 
-## 4. Responsive Design
+## 3. Profile Editing
 
-The application is built on Bootstrap 5 grid system, which handles responsiveness across screen sizes:
+On the Profile page, the Student Profile card displays the student's current Full Name, Course, Year Level, About Me, and Skills, along with an Edit Profile button.
 
-- Desktop – Full multi-column layout; navigation links display inline in the header; content cards and grids (skills, projects, interests) display in multiple columns.
-- Tablet – Grid columns adjust (e.g. `row-cols-sm-2`), and the header remains horizontal with balanced spacing.
-- Mobile – Layout stacks vertically (`flex-column flex-sm-row` on the profile header), grid items collapse to single or double columns, and navigation remains accessible and tappable without horizontal scrolling.
+When you click Edit Profile:
+- It Shows an editing form pre-filled with the current profile values.
 
-## 5. UI/UX Principles Applied
+The Edit Profile form allows the user to modify:
+- Full Name
+- Course
+- Year Level
+- About Me
+- Skills 
 
-Following Module 4 UI/UX principles, the design maintains:
+The form has two actions:
+- Save — validates the input, stores the updated profile, and updates the displayed profile card with the new information.
+- Cancel — discards any changes made in the form and returns to the profile view with the previous information.
 
-- Consistency – The same header, navigation, color scheme (olive green header, cream background, purple accents), and footer appear identically across all five pages.
-- Accessibility – A "Skip to main content" link, `aria-label` on navigation, `aria-current="page"` on the active link, and descriptive `alt` text on the profile image.
-- Usable, spaced-out controls – Bootstrap form components with labeled inputs on the Contact page; card-based layout with adequate spacing and touch-friendly targets.
+## 4. JavaScript Functionality
 
-## 6. How to Run
+JavaScript (index.js) drives all of the dynamic behavior on the Profile page:
 
-1. From the project root, prepare the Android platform:
-   ```
-   cordova prepare android
-   ```
-2. Run the app on an emulator or physical device:
-   ```
+header-sync.js is included on the About, Skills, Projects, and Contact pages. It reads the saved profile from localStorage on page load and updates the name, course, and year shown in the header, so the student's information stays consistent across every page of the site.
+
+## 5. Local Data Storage
+
+The application uses the browser's localStorage to store profile data between sessions.
+
+## 6. Responsive Design
+
+The application uses Bootstrap 5's responsive grid system along with custom CSS to remain usable across screen sizes:
+
+## 7. How to Run
+
+1. Make sure Node.js and the Cordova CLI are installed:
+   npm install -g cordova
+   
+2. Clone this repository and navigate into the project folder:
+   git clone https://github.com/Andrepository/Valmorida_StudentProfile.git
+   cd Valmorida_StudentProfile
+
+3. Install project dependencies 
+   
+4. Add a platform 
+   
+5. Build and run the application:
    cordova run android
-   ```
-  
+   
 
-## 7. Application Screenshots
+For quick testing of the HTML/CSS/JavaScript without a full Cordova build, the files inside the `www` folder can be opened directly in a browser (e.g. double-click www/index.html).
 
-### Desktop
-![Desktop screenshot](screenshots/2.png)
 
-### Tablet
-![Tablet screenshot](screenshots/3.png)
+##Screenshots
 
-### Mobile
-![Mobile screenshot](screenshots/1.png)
 
-## Technologies Used
+## Student Profile
+![Student Profile](screenshots/Screenshot-9.png)
 
-- HTML
-- CSS
-- Bootstrap 5 (for responsive design)
-- Google Fonts (for consistent typography)
-- Apache Cordova 
+## Edit Profile
+![Edit Profile](screenshots/Screenshot-12.png)
 
-## Author
+## Updated Profile
+![Updated Profile](screenshots/Screenshot-10.png)
 
-**Earl Andre H. Valmorida**
-BS Information Technology 3
-ITCC 41 A
+## Contact
+![Contact](screenshots/Screenshot-11.png)
+
