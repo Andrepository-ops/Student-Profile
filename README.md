@@ -1,85 +1,56 @@
-# Multi-Page Student Profile Website
-
-**Earl Andre H. Valmorida - ITCC41 A**
-
----
-
-## Project Description
-
-This is my multi-page Student Profile application. The site is built with HTML5, CSS3, and Bootstrap 5, packaged as a Cordova application. The Profile page now includes a fully functional Edit Profile feature that lets the user update their personal information directly through the app, with all changes saved using the browser's localStorage so they persist across sessions.
-
-## Application Pages
-
-- **Profile** (index.html) 
-- **About** (about.html) 
-- **Skills** (skills.html)
-- **Projects** (projects.html) 
-- **Contact** (contact.html) 
-
-## 3. Profile Editing
-
-On the Profile page, the Student Profile card displays the student's current Full Name, Course, Year Level, About Me, and Skills, along with an Edit Profile button.
-
-When you click Edit Profile:
-- It Shows an editing form pre-filled with the current profile values.
-
-The Edit Profile form allows the user to modify:
-- Full Name
-- Course
-- Year Level
-- About Me
-- Skills 
-
-The form has two actions:
-- Save — validates the input, stores the updated profile, and updates the displayed profile card with the new information.
-- Cancel — discards any changes made in the form and returns to the profile view with the previous information.
-
-## 4. JavaScript Functionality
-
-JavaScript (index.js) drives all of the dynamic behavior on the Profile page:
-
-header-sync.js is included on the About, Skills, Projects, and Contact pages. It reads the saved profile from localStorage on page load and updates the name, course, and year shown in the header, so the student's information stays consistent across every page of the site.
-
-## 5. Local Data Storage
-
-The application uses the browser's localStorage to store profile data between sessions.
-
-## 6. Responsive Design
-
-The application uses Bootstrap 5's responsive grid system along with custom CSS to remain usable across screen sizes:
-
-## 7. How to Run
-
-1. Make sure Node.js and the Cordova CLI are installed:
-   npm install -g cordova
-   
-2. Clone this repository and navigate into the project folder:
-   git clone https://github.com/Andrepository/Valmorida_StudentProfile.git
-   cd Valmorida_StudentProfile
-
-3. Install project dependencies 
-   
-4. Add a platform 
-   
-5. Build and run the application:
-   cordova run android
-   
-
-For quick testing of the HTML/CSS/JavaScript without a full Cordova build, the files inside the `www` folder can be opened directly in a browser (e.g. double-click www/index.html).
+# Student Profile App (Cordova)
+Earl Andre H. Valmorida - ITCC 41 A
 
 
-##Screenshots
+## Features
+
+View and edit profile details 
+Capture a profile photo using the device camera cordova-plugin-camera
+Profile data and photo persist locally via `localStorage`
+Responsive layout for desktop, tablet, and mobile
 
 
-## Student Profile
-![Student Profile](screenshots/Screenshot-9.png)
+## Tech Stack
 
-## Edit Profile
-![Edit Profile](screenshots/Screenshot-12.png)
+- Apache Cordova (Android platform)
+- HTML5, CSS3, Bootstrap 5
+- cordova-plugin-camera
 
-## Updated Profile
-![Updated Profile](screenshots/Screenshot-10.png)
+## Project Structure
 
-## Contact
-![Contact](screenshots/Screenshot-11.png)
+
+index.html          
+index.js            
+about.html          
+skills.html          
+projects.html        
+contact.html         
+header-sync.js   Syncs header name/photo across non-index pages
+style.css            
+profile.png           
+
+
+## Running the App
+
+cordova platform add android
+cordova build android
+cordova run android
+
+Requires a connected Android device or emulator with Cordova camera support.
+
+## Screenshots
+
+> Replace these placeholders with your own screenshots before submitting.
+
+Profile View
+![Profile view](screenshots/Profile-1.png)
+
+### Edit Profile
+![Edit profile form](screenshots/Profile-2.png)
+![Edit profile form](screenshots/Profile-3.png)
+
+### Profile with new photo
+![Edit profile form](screenshots/Profile-4.png)
+
+
 

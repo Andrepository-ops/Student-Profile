@@ -1,4 +1,5 @@
 const STORAGE_KEY = 'studentProfile';
+const PHOTO_KEY = 'profilePhoto';
 
 const defaults = {
     name: 'Your Name',
@@ -19,4 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (headerName) headerName.textContent = profile.name;
     if (headerCourse) headerCourse.textContent = profile.course;
     if (headerYear) headerYear.textContent = profile.year;
+
+    const savedPhoto = localStorage.getItem(PHOTO_KEY);
+    if (savedPhoto) {
+        const photoEl = document.getElementById('profile-photo');
+        if (photoEl) photoEl.src = savedPhoto;
+    }
 });
