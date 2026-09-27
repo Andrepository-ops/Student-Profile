@@ -1,29 +1,41 @@
-const STORAGE_KEY = 'studentProfile';
-const PHOTO_KEY = 'profilePhoto';
+// header-sync.js - keeps the header (name/course/year/photo) in sync on
+// about.html, skills.html, projects.html, and contact.html
 
-const defaults = {
-    name: 'Your Name',
-    course: 'BS Information Technology',
-    year: '4th Year',
-    about: 'Write something about yourself.',
-    skills: 'HTML, CSS, JavaScript'
-};
+document.addEventListener('DOMContentLoaded', async () => {
+    requireAuth(); // defined in auth.js — redirects to login.html if not authenticated
+    if (!getToken()) return;
 
-document.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    const profile = saved ? JSON.parse(saved) : defaults;
+    try {
+        const res = await fetch(`${API_BASE}/api/profile`, {
+            headers: { Authorization: `Bearer ${getToken()}` }
+        });
 
-    const headerName = document.getElementById('header-name');
-    const headerCourse = document.getElementById('header-course');
-    const headerYear = document.getElementById('header-year');
+        if (res.status === 401) {
+            clearToken();
+            window.location.href = 'login.html';
+            return;
+        }
+        if (!res.ok) return;
 
-    if (headerName) headerName.textContent = profile.name;
-    if (headerCourse) headerCourse.textContent = profile.course;
-    if (headerYear) headerYear.textContent = profile.year;
+        const profile = await res.json();
 
-    const savedPhoto = localStorage.getItem(PHOTO_KEY);
-    if (savedPhoto) {
-        const photoEl = document.getElementById('profile-photo');
-        if (photoEl) photoEl.src = savedPhoto;
+        const headerName = document.getElementById('header-name');
+        const headerCourse = document.getElementById('header-course');
+        const headerYear = document.getElementById('header-year');
+        if (headerName) headerName.textContent = profile.name;
+        if (headerCourse) headerCourse.textContent = profile.course;
+        if (headerYear) headerYear.textContent = profile.year;
+
+        if (profile.photo) {
+            const photoEl = document.getElementById('profile-photo');
+            if (photoEl) photoEl.src = profile.photo;
+        }
+    } catch (err) {
+        console.error('Could not load profile for header:', err);
+    }
+
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', logout);
     }
 });
